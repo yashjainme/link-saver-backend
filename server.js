@@ -21,6 +21,20 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/bookmarks', bookmarkRoutes);
 
+
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <head><title>Service Status</title></head>
+      <body style="font-family:sans-serif;text-align:center;margin-top:2rem;">
+        <h1>🚀 Link Saver API is running</h1>
+        <p>Backend server is active and listening on port ${PORT}</p>
+      </body>
+    </html>
+  `);
+});
+
+
 // Initialize database and start server
 initDB().then(() => {
   app.listen(PORT, () => {
