@@ -12,9 +12,10 @@ const PORT = process.env.PORT || 3002;
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'https://link-saverx.vercel.app'],
   credentials: true
 }));
+
 app.use(express.json());
 
 // Routes
